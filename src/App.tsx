@@ -92,6 +92,13 @@ function App() {
     setMousePosition([row, col]);
   };
 
+  const createEmptyGrida = () => {
+    return Array(30).fill(Array(50).fill(0));
+  };
+
+  console.log(createEmptyGrida());
+  console.log(grid);
+
   return (
     <div className="h-screen w-screen flex items-center p-4 bg-blue-500 flex-col gap-4">
       <h1 className="md:text-2xl text-xl">Conway's Game Of Life</h1>
@@ -128,7 +135,7 @@ function App() {
           Clear
         </Button>
         <input type="range" min="1" max="1500" onChange={changeGameSpeed} />
-        <p>{gameSpeed}</p>
+        <p>number of seconds between each generation :{gameSpeed / 1000}</p>
       </div>
       <div
         style={{
