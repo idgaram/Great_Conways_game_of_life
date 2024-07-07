@@ -138,7 +138,7 @@ function App() {
         }}
       >
         {grid.map((rows, originalRowIndex) =>
-          rows.map((originalColIndex) => (
+          rows.map((col, originalColIndex) => (
             <button
               type="button"
               onMouseDown={() =>
@@ -166,11 +166,11 @@ function App() {
 
       {mousePosition === null ? (
         <p className="w-full text-center ">
-          put your mouse over the grid if you want position informations
+          put your mouse over the grid if you want position information
         </p>
       ) : (
         <p className="w-full text-center ">
-          your cursor is at {mousePosition[0]}:{mousePosition[1]} (X:Y){" "}
+          your cursor is at {mousePosition[0]}:{mousePosition[1]} (X:Y)
         </p>
       )}
     </div>
