@@ -9,7 +9,7 @@ function App() {
   const [isPlaying, setIsPlaying] = useState(false);
   const [isMouseDown, setIsMouseDown] = useState(false);
   const [gameSpeed, setGameSpeed] = useState<number>(100);
-  const [mousePosition, setMousePosition] = useState<[number][number] | null>(
+  const [mousePosition, setMousePosition] = useState<[number, number] | null>(
     null
   );
 
@@ -89,7 +89,7 @@ function App() {
     if (isMouseDown) {
       toggleCellState(row, col); //toggle the cell state
     }
-    setMousePosition([row | null, col | null]);
+    setMousePosition([row, col]);
   };
 
   return (
@@ -138,7 +138,7 @@ function App() {
         }}
       >
         {grid.map((rows, originalRowIndex) =>
-          rows.map((col, originalColIndex) => (
+          rows.map((originalColIndex) => (
             <button
               type="button"
               onMouseDown={() =>
@@ -163,7 +163,16 @@ function App() {
           ))
         )}
       </div>
-      <p className="w-full text-center ">{`mouse is in ${mousePosition[0]}:${mousePosition[1]}`}</p>
+
+      {mousePosition === null ? (
+        <p className="w-full text-center ">
+          put your mouse over the grid if you want position informations
+        </p>
+      ) : (
+        <p className="w-full text-center ">
+          your cursor is at {mousePosition[0]}:{mousePosition[1]} (X:Y){" "}
+        </p>
+      )}
     </div>
   );
 }
