@@ -138,7 +138,7 @@ function App() {
         }}
       >
         {grid.map((rows, originalRowIndex) =>
-          rows.map((originalColIndex) => (
+          rows.map((_cols, originalColIndex) => (
             <button
               type="button"
               onMouseDown={() =>
