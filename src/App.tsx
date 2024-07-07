@@ -170,7 +170,7 @@ function App() {
         </p>
       ) : (
         <p className="w-full text-center ">
-          your cursor is at {mousePosition[0]}:{mousePosition[1]} (X:Y)
+          your cursor is at {mousePosition[1]}:{mousePosition[0]} (X:Y)
         </p>
       )}
     </div>
